@@ -1,4 +1,4 @@
-# Principal-components-analysis
+# The-Application-of-Principal-components-analysis-to-pm2.5
 Using PCA to analysis "air quality" data, then predict the "pm2.5"
 
 ---
