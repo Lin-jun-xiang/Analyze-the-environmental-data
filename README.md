@@ -77,6 +77,8 @@ Then visualize the counts of outlier at each times as following image :
 
 We can see the lower pm2.5 happen in the range of 12:00 pm to 20:00 pm which have good diffusion conditions.
 
+In constrant, the higher pm2.5 happen in early morning which means the pm2.5 **emitted from the local area** cannot diffusion well.
+
 <p align="center">
 <image src="https://user-images.githubusercontent.com/63782903/178278528-2ee369f0-28c8-4352-89d2-a0365bd8b941.png" width=50%/>
 </p>
