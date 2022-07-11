@@ -24,7 +24,9 @@ From the pc1 : the **"mean velocity of pm2.5", "mean velocity of pm10", "pm10", 
 
 From the pc2 : the **"CO", "mean velocity of pm2.5"** have most relation with "pm2.5".
 
+<p align="center">
 <img src="https://user-images.githubusercontent.com/63782903/169016632-86d0de02-626c-4ea6-83e2-2b7417f67561.png" width=50%/>
+</p>
 
 ---
 ### Regression model
@@ -36,25 +38,45 @@ Then choose **"Linear regression"** model.
 Cross validation method : **K-fold**
 
 ---
-### Predict Result and Summary
+### Predict Result
 
 Prediction score : 80%
 
 As following image :
 
-We can found the pm2.5 was high in November~March (11~3) which are winter of Taiwan.
+We can found the pm2.5 was high from November to March (11~3) which are winter season of Taiwan.
 
-The northeast monsoon prevails in Taiwan in winter. 
+Therefore, we can discuss the pm2.5 from **"season"**.
 
-However, Yunlin is located in the central and western parts of Taiwan (in the leeward belt of the Central Mountains) and the wind speed is low.
+The northeast monsoon prevails in Taiwan in winter.
+
+However, Yunlin is located in the central and western parts of Taiwan (in the leeward belt of the Central Mountains) which have lower wind speed.
 
 Therefore, it is speculated that the pollutants may be **emitted from the local area**, and the lack of wind will lead to unfavorable diffusion which will lead to high pm2.5. 
 
 In summer, there are southwest monsoon and subtropical high pressure weather patterns with good diffusion conditions, so the concentration of pm2.5 is not high.
 
+<p align="center">
 <img src = "https://user-images.githubusercontent.com/63782903/169017737-2e911dee-c17b-49a7-8f24-6afe49cda7fd.png" width=50%/>
+</p>
 
-Finally, looking at these deviation values, it can be found that almost all the time points are in the early morning.
+---
+### Analysis of high pm2.5
 
-<img src= "https://user-images.githubusercontent.com/63782903/169018989-2852d73e-076d-48c3-9263-e58cab415d1e.png" widht=50%/>
+Now, we know the difference season will results in concentration of pm2.5.
 
+Let's intensive the feature of **"Time"**.
+
+Firstly, We find out the **outlier** of pm2.5 in each month according to **"percentile"** and **"boxplot"** :
+
+<p align="center">
+<img src= "https://user-images.githubusercontent.com/63782903/178275960-7e1c2328-a33c-44df-adf5-fb05b15a1a9d.png" width=50%/>
+</p>
+
+Then visualize the counts of outlier at each times as following image :
+
+We can see the lower pm2.5 happen in the range of 12:00 pm to 20:00 pm which have good diffusion conditions.
+
+<p align="center">
+<image src="https://user-images.githubusercontent.com/63782903/178278528-2ee369f0-28c8-4352-89d2-a0365bd8b941.png" width=50%/>
+</p>
