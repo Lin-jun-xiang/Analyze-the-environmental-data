@@ -1,12 +1,15 @@
 # The-Application-of-Principal-components-analysis-to-pm2.5
-Using PCA to analysis "air quality" data, then predict the "pm2.5"
+
+* Using Principal-components-analysis (PCA) to analysis "air quality" data, find out the features related to "pm2.5"
+* Using data of 2018 to predict pm2.5 of 2019
+* Analyze the source of pm2.5
 
 ---
 ### Method
 
 1. Using python-selenium to get the data of "air quality" first (data from Yunlin of Taiwan).
 2. Using pca to analysis the relation of each features, then find the features which have most relation with "pm2.5".
-3. Using the data of principle components to predict "pm2.5".
+3. Using the data of principle components to predict "pm2.5" with linear regression.
 4. Explain the source of "pm2.5" in Taiwan.
 
 ---
@@ -30,8 +33,12 @@ Using **"pm10", "mean velocity of pm2.5 and pm10"** as our training data.
 
 Then choose **"Linear regression"** model.
 
+Cross validation method : **K-fold**
+
 ---
 ### Predict Result and Summary
+
+Prediction score : 80%
 
 As following image :
 
