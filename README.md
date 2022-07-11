@@ -1,4 +1,4 @@
-# Analyze the enviromental data
+# Analyze the environmental data
 
 ---
 ### Introduction
