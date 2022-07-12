@@ -73,7 +73,7 @@ Let's intensive the feature of **"Time"**.
 Firstly, We find out the **outlier** of pm2.5 in each month according to **"percentile"** and **"boxplot"** :
 
 <p align="center">
-<img src= "https://user-images.githubusercontent.com/63782903/178275960-7e1c2328-a33c-44df-adf5-fb05b15a1a9d.png" width=50%/>
+<img src="https://user-images.githubusercontent.com/63782903/178486743-d492cc96-8a49-4456-b5de-db0449281c67.png" width=50%/>
 </p>
 
 Then visualize the counts of outlier at each times as following image :
@@ -83,5 +83,5 @@ We can see the lower pm2.5 happen in the range of 12:00 pm to 20:00 pm which hav
 In constrant, the higher pm2.5 happen in early morning which means the pm2.5 **emitted from the local area** cannot diffusion well.
 
 <p align="center">
-<image src="https://user-images.githubusercontent.com/63782903/178278528-2ee369f0-28c8-4352-89d2-a0365bd8b941.png" width=50%/>
+<image src="https://user-images.githubusercontent.com/63782903/178486808-996d3afc-16e3-4bbb-a1a9-6aa9189b9f13.png" width=50%/>
 </p>
