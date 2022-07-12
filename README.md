@@ -60,7 +60,7 @@ Therefore, it is speculated that the pollutants may be **emitted from the local 
 In summer, there are southwest monsoon and subtropical high pressure weather patterns with good diffusion conditions, so the concentration of pm2.5 is not high.
 
 <p align="center">
-<img src = "https://user-images.githubusercontent.com/63782903/169017737-2e911dee-c17b-49a7-8f24-6afe49cda7fd.png" width=50%/>
+<img src = "https://user-images.githubusercontent.com/63782903/178513614-9799464f-c477-4c82-ba75-dae4a23dd7a4.png" width=50%/>
 </p>
 
 ---
