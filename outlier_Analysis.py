@@ -67,7 +67,6 @@ def findOutlier():
     pdf["監測時間"] = [str(time) for time in range(24)]
 
     # Visualize the outlier
-    fig = plt.figure(figsize=(8, 10))
     color_continuous_scale=[[0, '#5ee7df'], [1, '#b490ca']]
     # plt.barh([str(time) for time in range(24)], pdf, color="hotpink")
     fig = px.bar(pdf, y='監測時間', x='counts',

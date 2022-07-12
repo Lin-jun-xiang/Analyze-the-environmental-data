@@ -80,7 +80,7 @@ for i in range(1, 3):
 
 # ---------------------------------------------------------- Start predict
 file = 'data.xlsx'
-df_2019 = pd.read_excel(file, index=None)
+df_2019 = pd.read_excel(file)
 headList_2019 = list(df_2019.columns[1:])
 df2_2019 = df_2019[headList_2019[7:23]].apply(pd.to_numeric, errors='coerce')  # ALL data (type=float), if data have '-', change to 'nan'
 data_2019 = np.array(df2_2019, dtype='float64')  # ALL features
@@ -109,3 +109,46 @@ ax2.set_ylabel("μg/m3")
 xrange = list(np.arange(0, 8500, 2150))
 ax2.set_xticks(xrange)
 ax2.set_xticklabels(['2019-12', '2019-9', '2019-6', '2019-3'], rotation=45)
+
+# ---------------------------------------------------------- Add the plotly visualization
+import plotly.graph_objects as go
+fig = go.Figure()
+
+# Add scatter traces
+scatter1 = go.Scatter(x=[i for i in range(len(y_2019))], y=y_2019,
+                      name='true value',
+                      mode='markers',
+                      # setting marker (points) style
+                      marker = {"color":"#D16BA5", "size": 5}, opacity=0.8)
+fig.add_trace(scatter1)
+
+# Add line traces
+line1 = go.Scatter(x=[i for i in range(len(y_2019))], y=y_pred_2019,
+                        mode='lines',
+                        name='predict value',
+                        # setting line style
+                        line={"color":"#86A8E7"}, opacity=0.6)
+fig.add_trace(line1)
+
+# Update layout
+fig.update_layout(title="Prediction of PM2.5",
+                  xaxis_title="times",
+                  yaxis_title="pm2.5 (μg/m3)",
+                  font_family="Courier New",
+                  font_color="blue",
+                  title_font_family="Times New Roman",
+                  title_font_color="red",
+                  legend_title_font_color="green",
+                  legend_font_color="green",
+                  xaxis={"color":"black"},
+                  yaxis={"color":"black"})
+
+# Rotational x-axis tick
+fig.update_xaxes(tickangle = 45)
+
+# Set custom x-axis labels
+fig.update_xaxes(
+    ticktext=['2019-12', '2019-9', '2019-6', '2019-3'],
+    tickvals=xrange
+)
+fig.show()
