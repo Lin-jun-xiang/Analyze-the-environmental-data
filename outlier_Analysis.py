@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
+import plotly.express as px
 
 def missingValue():
     """
@@ -13,7 +14,7 @@ def missingValue():
     # Using interpolation method
     df["細懸浮微粒(μg/m<sup>3</sup>)"] = df["細懸浮微粒(μg/m<sup>3</sup>)"].astype(float).interpolate(method="linear")
 
-def boxplotor(data):
+def boxplotor():
     """
     Visualize the outlier of each month
     """
@@ -26,10 +27,15 @@ def boxplotor(data):
     # Merge df_months to df
     df["month"] = df_months
 
-    sns.boxplot(x="month", y="細懸浮微粒(μg/m<sup>3</sup>)", data=df)
-    plt.xlabel("month")
-    plt.ylabel("pm2.5")
-    plt.title("BoxPlot(2018~2019)")
+    # sns.boxplot(x="month", y="細懸浮微粒(μg/m<sup>3</sup>)", data=df)
+    # plt.xlabel("month")
+    # plt.ylabel("pm2.5")
+    # plt.title("BoxPlot(2018~2019)")
+    fig = px.box(df, x="month", y="細懸浮微粒(μg/m<sup>3</sup>)",
+                 labels={'細懸浮微粒(μg/m<sup>3</sup>)':'pm2.5'},
+                 color="month",
+                 title="BoxPlot(2018~2019)")
+    fig.show()
 
 def findOutlier():
     """
@@ -58,13 +64,27 @@ def findOutlier():
     # Groupby aggregation
     pdf = outlier.groupby(by=["監測時間"]).count()
     pdf.rename(columns={'Unnamed: 0':'counts'}, inplace=True)
-    pdf = pdf["counts"]
+    pdf["監測時間"] = [str(time) for time in range(24)]
 
     # Visualize the outlier
     fig = plt.figure(figsize=(8, 10))
-    plt.barh([str(time) for time in range(24)], pdf, color="hotpink")
-    plt.xlabel("counts of outlier", fontsize=16)
-    plt.ylabel("times(hr)", fontsize=16)
+    color_continuous_scale=[[0, '#5ee7df'], [1, '#b490ca']]
+    # plt.barh([str(time) for time in range(24)], pdf, color="hotpink")
+    fig = px.bar(pdf, y='監測時間', x='counts',
+                 color='counts',
+                 labels={'counts':'counts of outlier'},
+                #  template = "plotly_dark",
+                 color_continuous_scale=color_continuous_scale,
+                 orientation='h')
+    fig.layout.coloraxis.colorbar.title = 'counts'
+    fig.update_traces(textfont_size=12,
+                      textangle=0,
+                      textposition="outside",
+                      cliponaxis=False,
+                      opacity=0.9)
+
+    fig.show()
+
 
 if __name__ == "__main__":
     file = 'data.xlsx'
@@ -87,5 +107,5 @@ if __name__ == "__main__":
     plt.xlabel('times(hr)', fontsize=16)
     plt.title("pm2.5 of each time")
 
-    boxplotor(df)
+    boxplotor()
     findOutlier()
