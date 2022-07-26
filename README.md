@@ -34,11 +34,13 @@ From the pc2 : the **"CO", "mean velocity of pm2.5"** have most relation with "p
 ---
 ### Regression model
 
-Using **"pm10", "mean velocity of pm2.5 and pm10"** as our training data.
+Using data of 2018 as our training data.
 
 Then choose **"Linear regression"** model.
 
 Cross validation method : **K-fold**
+
+Predict pm2.5 of 2019.
 
 ---
 ### Predict Result
@@ -48,6 +50,8 @@ Prediction score : 80%
 As following image :
 
 We can found the pm2.5 was high from November to March (11~3) which are winter season of Taiwan.
+
+Moreover, the pca result show the **mean velocity** are important correlation with pm2.5.
 
 Therefore, we can discuss the pm2.5 from **"season"**.
 
@@ -60,7 +64,7 @@ Therefore, it is speculated that the pollutants may be **emitted from the local 
 In summer, there are southwest monsoon and subtropical high pressure weather patterns with good diffusion conditions, so the concentration of pm2.5 is not high.
 
 <p align="center">
-<img src = "https://user-images.githubusercontent.com/63782903/169017737-2e911dee-c17b-49a7-8f24-6afe49cda7fd.png" width=50%/>
+<img src = "https://user-images.githubusercontent.com/63782903/178513614-9799464f-c477-4c82-ba75-dae4a23dd7a4.png" width=50%/>
 </p>
 
 ---
