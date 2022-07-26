@@ -108,3 +108,19 @@ if __name__ == "__main__":
 
     boxplotor()
     findOutlier()
+
+
+a = df.groupby(["監測時間"], as_index=False).agg('count')
+a = a[["監測時間", "縣市"]]
+a.rename(columns={"縣市": "counts"}, inplace=True)
+
+df["counts"] = df.groupby(["監測時間"])["縣市"].transform('count')
+
+
+def counter(df):
+    print(len(df))
+    return len(df)
+df["counts"] = df.groupby(["監測時間"], as_index=False)["縣市"].apply(counter)["縣市"]
+
+maxcounts = a.max(axis=0)["counts"]
+maxindex = a["監測時間"][a["counts"].idxmax(axis=0)]
